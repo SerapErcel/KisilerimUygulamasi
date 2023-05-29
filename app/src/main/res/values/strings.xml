@@ -1,13 +1,16 @@
 <resources>
-    <string name="app_name">KisilerimUygulamasi</string>
+    <string name="app_name">Contacts App</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Contacts App</string>
+    <string name="nav_header_subtitle">Turkcell Contacts Application</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_family">Family</string>
+    <string name="menu_friend">Friends</string>
+    <string name="menu_school">School</string>
+    <string name="menu_turkcell">Turkcell GYGY</string>
+
 </resources>

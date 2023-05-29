@@ -1,10 +1,10 @@
-package com.serapercel.kisilerimuygulamasi.ui.gallery
+package com.serapercel.kisilerimuygulamasi.ui.family
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class FamilyViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is gallery Fragment"
