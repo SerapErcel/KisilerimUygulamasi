@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.addContact.AddContactFragment">
+    tools:context=".ui.detail.DetailFragment">
 
     <TextView
-        android:id="@+id/tvTitleCategory"
+        android:id="@+id/tvDetailTitleCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -26,7 +26,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailTitleCategory" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilDetailFirstName"
@@ -112,11 +112,24 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/add_contact"
+        android:text="@string/update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilDetailAddress" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDeleteContact"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateContact" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,5 +19,7 @@
     <string name="address">Address</string>
     <string name="phone_number">Phone Number</string>
     <string name="last_name">Last Name</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 
 </resources>
