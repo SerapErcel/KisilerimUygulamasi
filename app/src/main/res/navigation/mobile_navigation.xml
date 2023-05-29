@@ -32,4 +32,9 @@
         android:name="com.serapercel.kisilerimuygulamasi.ui.turkcellGYGY.TurkcellGYGYFragment"
         android:label="@string/menu_turkcell"
         tools:layout="@layout/fragment_turkcell_g_y_g_y" />
+    <fragment
+        android:id="@+id/nav_addContact"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.addContact.AddContactFragment"
+        android:label="@string/add_contact"
+        tools:layout="@layout/fragment_add_contact" />
 </navigation>

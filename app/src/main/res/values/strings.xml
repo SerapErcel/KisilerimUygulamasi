@@ -12,5 +12,12 @@
     <string name="menu_friend">Friends</string>
     <string name="menu_school">School</string>
     <string name="menu_turkcell">Turkcell GYGY</string>
+    <string name="search">Search</string>
+    <string name="category">Category</string>
+    <string name="name">First Name</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="last_name">Last Name</string>
 
 </resources>
