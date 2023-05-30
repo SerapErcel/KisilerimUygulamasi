@@ -8,9 +8,11 @@ class ContactRepository(var cds: ContactDatasource) {
 
     suspend fun getContacts(): List<Contact> = cds.getContacts()
 
+    suspend fun getContact(id: Int): Contact = cds.getContact(id)
+
     suspend fun addContact(contact: Contact) = cds.addContact(contact)
 
-    suspend fun upsertContact(contact: Contact) = cds.upsertContact(contact)
+    suspend fun updateContact(contact: Contact) = cds.updateContact(contact)
 
     suspend fun deleteContact(contact: Contact) = cds.deleteContact(contact)
 

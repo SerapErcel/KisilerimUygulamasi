@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.serapercel.kisilerimuygulamasi.R
 import com.serapercel.kisilerimuygulamasi.databinding.FragmentHomeBinding
 import com.serapercel.kisilerimuygulamasi.room.entity.Contact
 import com.serapercel.kisilerimuygulamasi.ui.adapter.ContactAdapter
@@ -16,9 +18,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     lateinit var list: List<Contact>
     lateinit var homeViewModel: HomeViewModel
@@ -30,7 +29,6 @@ class HomeFragment : Fragment() {
     ): View {
         homeViewModel =
             ViewModelProvider(this)[HomeViewModel::class.java]
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -61,11 +59,15 @@ class HomeFragment : Fragment() {
             }
         })
 
-        binding.lvHomeContacts.setOnItemClickListener { parent, view, position, id ->
-            // TODO Navigate Detail Page
+        binding.lvHomeContacts.setOnItemClickListener { _, _, position, _ ->
+            val navController = findNavController()
+            val bundle = Bundle()
+            bundle.putInt(
+                "id",
+                list[position].nid!!
+            ) // Argümanı bundle'a ekle, istediğiniz veriyi ekleyebilirsiniz
+            navController.navigate(R.id.nav_detail, bundle)
         }
-
-
     }
 
     override fun onResume() {

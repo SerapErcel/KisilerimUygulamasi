@@ -12,8 +12,12 @@ import com.serapercel.kisilerimuygulamasi.room.entity.Contact
 interface ContactDAO {
 
     // Tablodaki Verileri Getirir
-    @Query("SELECT * FROM contacts")
+    @Query("SELECT * FROM contacts ORDER BY nid DESC LIMIT 10")
     suspend fun getContacts(): List<Contact>
+
+    // Tablodaki Veriyi Getirir
+    @Query("SELECT * FROM contacts WHERE nid like :id")
+    suspend fun getContact(id: Int): Contact
 
     // Veri Tabloda Mevcutsa Günceller, Mevcut Değilse Ekler -YENİ
     @Upsert

@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
 }
 apply plugin: "dagger.hilt.android.plugin"
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     namespace 'com.serapercel.kisilerimuygulamasi'

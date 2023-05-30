@@ -11,12 +11,16 @@ class ContactDatasource(var cdao: ContactDAO) {
         cdao.getContacts()
     }
 
+    suspend fun getContact(id: Int): Contact = withContext(Dispatchers.IO) {
+        cdao.getContact(id)
+    }
+
     suspend fun addContact(contact: Contact) = withContext(Dispatchers.IO) {
         cdao.addContact(contact)
     }
 
-    suspend fun upsertContact(contact: Contact) = withContext(Dispatchers.IO) {
-        cdao.upsertContact(contact)
+    suspend fun updateContact(contact: Contact) = withContext(Dispatchers.IO) {
+        cdao.updateContact(contact)
     }
 
     suspend fun deleteContact(contact: Contact) = withContext(Dispatchers.IO) {
