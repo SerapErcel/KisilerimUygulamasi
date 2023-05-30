@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.serapercel.kisilerimuygulamasi.databinding.FragmentSchoolBinding
+import com.serapercel.kisilerimuygulamasi.room.entity.Contact
+import com.serapercel.kisilerimuygulamasi.ui.adapter.ContactAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,7 +16,7 @@ class SchoolFragment : Fragment() {
 
     private var _binding: FragmentSchoolBinding? = null
     private val binding get() = _binding!!
-
+    lateinit var list: List<Contact>
     private lateinit var schoolViewModel: SchoolViewModel
 
     override fun onCreateView(
@@ -24,9 +26,24 @@ class SchoolFragment : Fragment() {
         schoolViewModel =
             ViewModelProvider(this)[SchoolViewModel::class.java]
         _binding = FragmentSchoolBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        schoolViewModel.getList()
+
+        schoolViewModel.list.observe(viewLifecycleOwner) {
+            list = it
+            val adapter = ContactAdapter(requireActivity(), list)
+            binding.lvSchool.adapter = adapter
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        schoolViewModel.getList()
     }
 
     override fun onDestroyView() {
