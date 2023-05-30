@@ -21,5 +21,6 @@
     <string name="last_name">Last Name</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="detail">Detail</string>
 
 </resources>

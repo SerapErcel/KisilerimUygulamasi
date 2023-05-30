@@ -7,34 +7,63 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.serapercel.kisilerimuygulamasi.ui.home.HomeFragment"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.fragment.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_detail"
+            app:destination="@id/nav_detail" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_family"
-        android:name="com.serapercel.kisilerimuygulamasi.ui.family.FamilyFragment"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.fragment.family.FamilyFragment"
         android:label="@string/menu_family"
-        tools:layout="@layout/fragment_family" />
+        tools:layout="@layout/fragment_family" >
+        <action
+            android:id="@+id/action_nav_family_to_nav_detail"
+            app:destination="@id/nav_detail" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_friends"
-        android:name="com.serapercel.kisilerimuygulamasi.ui.friends.FriendsFragment"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.fragment.friends.FriendsFragment"
         android:label="@string/menu_friend"
-        tools:layout="@layout/fragment_friends" />
+        tools:layout="@layout/fragment_friends" >
+        <action
+            android:id="@+id/action_nav_friends_to_nav_detail"
+            app:destination="@id/nav_detail" />
+    </fragment>
     <fragment
         android:id="@+id/nav_school"
-        android:name="com.serapercel.kisilerimuygulamasi.ui.school.SchoolFragment"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.fragment.school.SchoolFragment"
         android:label="@string/menu_school"
-        tools:layout="@layout/fragment_school" />
+        tools:layout="@layout/fragment_school" >
+        <action
+            android:id="@+id/action_nav_school_to_nav_detail"
+            app:destination="@id/nav_detail" />
+    </fragment>
     <fragment
         android:id="@+id/nav_turkcell"
-        android:name="com.serapercel.kisilerimuygulamasi.ui.turkcellGYGY.TurkcellGYGYFragment"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.fragment.turkcellGYGY.TurkcellGYGYFragment"
         android:label="@string/menu_turkcell"
-        tools:layout="@layout/fragment_turkcell_g_y_g_y" />
+        tools:layout="@layout/fragment_turkcell_g_y_g_y" >
+        <action
+            android:id="@+id/action_nav_turkcell_to_nav_detail"
+            app:destination="@id/nav_detail" />
+    </fragment>
     <fragment
         android:id="@+id/nav_addContact"
-        android:name="com.serapercel.kisilerimuygulamasi.ui.addContact.AddContactFragment"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.fragment.addContact.AddContactFragment"
         android:label="@string/add_contact"
         tools:layout="@layout/fragment_add_contact" />
+    <fragment
+        android:id="@+id/nav_detail"
+        android:name="com.serapercel.kisilerimuygulamasi.ui.fragment.detail.DetailFragment"
+        android:label="@string/detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
