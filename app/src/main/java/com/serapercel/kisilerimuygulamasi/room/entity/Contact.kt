@@ -9,20 +9,20 @@ data class Contact(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "nid")
-    val nid: Int?,
+    var nid: Int?,
 
     @ColumnInfo(name = "category")
     val category: String?,
 
     @ColumnInfo(name = "firstName")
-    val firstName: String?,
+    var firstName: String?,
 
     @ColumnInfo(name = "lastName")
-    val lastName: String?,
+    var lastName: String?,
 
     @ColumnInfo(name = "phone")
-    val phone: String?,
+    var phone: String?,
 
     @ColumnInfo(name = "address")
-    val address: String?
+    var address: String?
 )

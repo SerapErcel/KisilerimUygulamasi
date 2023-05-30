@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.serapercel.kisilerimuygulamasi.databinding.FragmentFamilyBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FamilyFragment : Fragment() {
 
     private var _binding: FragmentFamilyBinding? = null

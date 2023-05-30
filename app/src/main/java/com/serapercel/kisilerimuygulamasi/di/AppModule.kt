@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.serapercel.kisilerimuygulamasi.data.datasource.ContactDatasource
 import com.serapercel.kisilerimuygulamasi.data.repository.ContactRepository
 import com.serapercel.kisilerimuygulamasi.room.dao.ContactDAO
-import com.serapercel.kisilerimuygulamasi.room.database.Database
+import com.serapercel.kisilerimuygulamasi.room.database.DB
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -32,8 +32,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideContactDAO(@ApplicationContext context: Context): ContactDAO {
-        val db = Room.databaseBuilder(context, Database::class.java, "contacts.sqlite")
-            .createFromAsset("contacts.sqlite").build()
+        val db = Room.databaseBuilder(context, DB::class.java, "contacts.sqlite").build()
         return db.contactDAO()
 
     }

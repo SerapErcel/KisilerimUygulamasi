@@ -3,11 +3,33 @@ package com.serapercel.kisilerimuygulamasi.ui.fragment.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.serapercel.kisilerimuygulamasi.data.repository.ContactRepository
+import com.serapercel.kisilerimuygulamasi.room.entity.Contact
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(var crepo: ContactRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private val _list = MutableLiveData<List<Contact>>()
+    val list: LiveData<List<Contact>> = _list
+
+    init {
+        getList()
     }
-    val text: LiveData<String> = _text
+
+    private fun getList() {
+        CoroutineScope(Dispatchers.Main).launch {
+            _list.value = crepo.getContacts()
+        }
+    }
+
+    fun search(firstname: String) {
+        CoroutineScope(Dispatchers.Main).launch {
+            crepo.searchFirstName(firstname)
+        }
+    }
 }

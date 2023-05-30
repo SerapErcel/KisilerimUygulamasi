@@ -1,5 +1,6 @@
 package com.serapercel.kisilerimuygulamasi.room.dao
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
@@ -7,6 +8,7 @@ import androidx.room.Update
 import androidx.room.Upsert
 import com.serapercel.kisilerimuygulamasi.room.entity.Contact
 
+@Dao
 interface ContactDAO {
 
     // Tablodaki Verileri Getirir

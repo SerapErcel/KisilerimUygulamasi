@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.serapercel.kisilerimuygulamasi.databinding.FragmentSchoolBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SchoolFragment : Fragment() {
 
     private var _binding: FragmentSchoolBinding? = null
