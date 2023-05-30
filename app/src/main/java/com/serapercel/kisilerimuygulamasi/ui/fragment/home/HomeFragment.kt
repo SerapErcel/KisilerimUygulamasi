@@ -1,7 +1,6 @@
 package com.serapercel.kisilerimuygulamasi.ui.fragment.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,34 +20,37 @@ class HomeFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     lateinit var list: List<Contact>
+    lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        homeViewModel =
+            ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        homeViewModel.list.observe(viewLifecycleOwner) {
-            list= it
-            val adapter = ContactAdapter(requireActivity(), list)
-            binding.lvHomeContacts.adapter = adapter
-            Log.d("list", list.toString())
-        }
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        homeViewModel.getList()
+
+        homeViewModel.list.observe(viewLifecycleOwner) {
+            list= it
+            val adapter = ContactAdapter(requireActivity(), list)
+            binding.lvHomeContacts.adapter = adapter
+        }
+
         binding.lvHomeContacts.setOnItemClickListener { parent, view, position, id ->
             // TODO Navigate Detail Page
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

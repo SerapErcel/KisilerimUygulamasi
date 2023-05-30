@@ -15,13 +15,13 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(var crepo: ContactRepository) : ViewModel() {
 
     private val _list = MutableLiveData<List<Contact>>()
-    val list: LiveData<List<Contact>> = _list
+    val list: LiveData<List<Contact>> get() =  _list
 
     init {
         getList()
     }
 
-    private fun getList() {
+    fun getList() {
         CoroutineScope(Dispatchers.Main).launch {
             _list.value = crepo.getContacts()
         }
