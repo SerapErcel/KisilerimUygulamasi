@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.serapercel.kisilerimuygulamasi.databinding.FragmentHomeBinding
@@ -41,19 +42,40 @@ class HomeFragment : Fragment() {
         homeViewModel.getList()
 
         homeViewModel.list.observe(viewLifecycleOwner) {
-            list= it
+            list = it
             val adapter = ContactAdapter(requireActivity(), list)
             binding.lvHomeContacts.adapter = adapter
         }
 
+        binding.svSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                // Arama gönderildiğinde burası çalışır
+                homeViewModel.search(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                // Arama metni değiştiğinde burası çalışır
+                homeViewModel.search(newText)
+                return true
+            }
+        })
+
         binding.lvHomeContacts.setOnItemClickListener { parent, view, position, id ->
             // TODO Navigate Detail Page
         }
+
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        homeViewModel.getList()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 }

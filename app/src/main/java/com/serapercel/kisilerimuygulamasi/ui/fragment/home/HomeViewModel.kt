@@ -15,7 +15,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(var crepo: ContactRepository) : ViewModel() {
 
     private val _list = MutableLiveData<List<Contact>>()
-    val list: LiveData<List<Contact>> get() =  _list
+    val list: LiveData<List<Contact>> get() = _list
 
     init {
         getList()
@@ -29,7 +29,7 @@ class HomeViewModel @Inject constructor(var crepo: ContactRepository) : ViewMode
 
     fun search(firstname: String) {
         CoroutineScope(Dispatchers.Main).launch {
-            crepo.searchFirstName(firstname)
+            _list.value = crepo.searchFirstName(firstname)
         }
     }
 }
