@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import com.google.android.material.snackbar.Snackbar
 import com.serapercel.kisilerimuygulamasi.databinding.FragmentAddContactBinding
 import com.serapercel.kisilerimuygulamasi.room.entity.Contact
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,6 +47,8 @@ class AddContactFragment : Fragment() {
                 val phone = binding.etPhoneNum.text.toString()
                 val contact = Contact(null, category, firstName, lastName, phone, address)
                 addContactViewModel.add(contact)
+                Snackbar.make(it, "New Contact Added! ", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
             }
         }
 

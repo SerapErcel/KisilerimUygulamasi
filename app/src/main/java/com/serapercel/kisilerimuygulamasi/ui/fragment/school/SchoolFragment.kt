@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.serapercel.kisilerimuygulamasi.R
 import com.serapercel.kisilerimuygulamasi.databinding.FragmentSchoolBinding
 import com.serapercel.kisilerimuygulamasi.room.entity.Contact
 import com.serapercel.kisilerimuygulamasi.ui.adapter.ContactAdapter
@@ -38,6 +40,15 @@ class SchoolFragment : Fragment() {
             list = it
             val adapter = ContactAdapter(requireActivity(), list)
             binding.lvSchool.adapter = adapter
+        }
+        binding.lvSchool.setOnItemClickListener { _, _, position, _ ->
+            val navController = findNavController()
+            val bundle = Bundle()
+            bundle.putInt(
+                "id",
+                list[position].nid!!
+            ) // Argümanı bundle'a ekle, istediğiniz veriyi ekleyebilirsiniz
+            navController.navigate(R.id.nav_detail, bundle)
         }
     }
 
