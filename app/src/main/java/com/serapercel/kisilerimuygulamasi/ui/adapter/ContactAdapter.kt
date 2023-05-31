@@ -27,6 +27,5 @@ class ContactAdapter(private val context: Activity, private val list: List<Conta
         address.text = contact.address
 
         return rootView
-
     }
 }

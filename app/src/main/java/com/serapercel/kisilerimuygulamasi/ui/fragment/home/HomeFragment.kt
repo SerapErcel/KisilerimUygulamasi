@@ -47,13 +47,11 @@ class HomeFragment : Fragment() {
 
         binding.svSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                // Arama gönderildiğinde burası çalışır
                 homeViewModel.search(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                // Arama metni değiştiğinde burası çalışır
                 homeViewModel.search(newText)
                 return true
             }
@@ -62,10 +60,7 @@ class HomeFragment : Fragment() {
         binding.lvHomeContacts.setOnItemClickListener { _, _, position, _ ->
             val navController = findNavController()
             val bundle = Bundle()
-            bundle.putInt(
-                "id",
-                list[position].nid!!
-            ) // Argümanı bundle'a ekle, istediğiniz veriyi ekleyebilirsiniz
+            bundle.putInt( "id", list[position].nid!! )
             navController.navigate(R.id.nav_detail, bundle)
         }
     }

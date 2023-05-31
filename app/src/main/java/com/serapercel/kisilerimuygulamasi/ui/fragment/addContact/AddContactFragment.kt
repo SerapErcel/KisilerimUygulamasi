@@ -51,7 +51,6 @@ class AddContactFragment : Fragment() {
                     .setAction("Action", null).show()
             }
         }
-
         return root
     }
 

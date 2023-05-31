@@ -22,7 +22,6 @@ class DetailFragment : Fragment() {
     private lateinit var detailViewModel: DetailViewModel
     private val args: DetailFragmentArgs by navArgs()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

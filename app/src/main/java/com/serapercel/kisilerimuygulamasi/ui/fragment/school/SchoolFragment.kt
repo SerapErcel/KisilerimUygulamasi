@@ -44,10 +44,7 @@ class SchoolFragment : Fragment() {
         binding.lvSchool.setOnItemClickListener { _, _, position, _ ->
             val navController = findNavController()
             val bundle = Bundle()
-            bundle.putInt(
-                "id",
-                list[position].nid!!
-            ) // Argümanı bundle'a ekle, istediğiniz veriyi ekleyebilirsiniz
+            bundle.putInt( "id", list[position].nid!! )
             navController.navigate(R.id.nav_detail, bundle)
         }
     }

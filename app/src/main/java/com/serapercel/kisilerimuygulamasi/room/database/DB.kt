@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.serapercel.kisilerimuygulamasi.room.dao.ContactDAO
 import com.serapercel.kisilerimuygulamasi.room.entity.Contact
 
-@Database(entities = [Contact::class], version = 2)
+@Database(entities = [Contact::class], version = 1)
 abstract class DB : RoomDatabase() {
 
     abstract fun contactDAO(): ContactDAO

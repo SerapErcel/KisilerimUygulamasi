@@ -1,6 +1,5 @@
 package com.serapercel.kisilerimuygulamasi.ui.fragment.addContact
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.serapercel.kisilerimuygulamasi.data.repository.ContactRepository
 import com.serapercel.kisilerimuygulamasi.room.entity.Contact
@@ -16,7 +15,6 @@ class AddContactViewModel @Inject constructor(var crepo: ContactRepository) : Vi
     fun add(contact: Contact) {
         CoroutineScope(Dispatchers.Main).launch {
             crepo.addContact(contact)
-            Log.d("list", "add")
         }
     }
 }

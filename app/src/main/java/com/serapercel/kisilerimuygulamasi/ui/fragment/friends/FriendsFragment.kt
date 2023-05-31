@@ -15,9 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class FriendsFragment : Fragment() {
 
     private var _binding: FragmentFriendsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     lateinit var list: List<Contact>
     lateinit var friendsViewModel: FriendsViewModel

@@ -17,9 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class FamilyFragment : Fragment() {
 
     private var _binding: FragmentFamilyBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     lateinit var list: List<Contact>
     lateinit var familyViewModel: FamilyViewModel
@@ -32,7 +29,6 @@ class FamilyFragment : Fragment() {
             ViewModelProvider(this)[FamilyViewModel::class.java]
 
         _binding = FragmentFamilyBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -52,7 +48,7 @@ class FamilyFragment : Fragment() {
             bundle.putInt(
                 "id",
                 list[position].nid!!
-            ) // Argümanı bundle'a ekle, istediğiniz veriyi ekleyebilirsiniz
+            )
             navController.navigate(R.id.nav_detail, bundle)
         }
     }
